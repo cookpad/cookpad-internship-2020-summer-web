@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ユーザー一覧</h1>
+
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新しいユーザーを作成する', new_user_path %>

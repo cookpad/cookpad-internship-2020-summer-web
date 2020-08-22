@@ -1,0 +1,29 @@
+# CodeBuild のビルド仕様に関するリファレンス
+# https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-spec-ref.html
+version: 0.2
+
+env:
+  variables:
+    DATABASE_URL: mysql2://127.0.0.1:3306
+    # Set flag to skip development env setup on CI. See `bin/setup`
+    RUN_CI: 1
+
+phases:
+  install:
+    runtime-versions:
+      ruby: 2.7
+      docker: 19
+  pre_build:
+    commands:
+      - docker pull mysql:5.6
+      - docker run -d -e MYSQL_ALLOW_EMPTY_PASSWORD=1 -p 3306:3306 mysql:5.6
+      # Install gems to `/tmp/bundle` which specified for caching.
+      # `jobs` means the number of jobs to run in parallel when bundle install.
+      - bundle config set path /tmp/bundle && bundle config --global jobs 4
+      - bin/setup
+  build:
+    commands:
+      - bundle exec rspec
+cache:
+  paths:
+    - /tmp/bundle

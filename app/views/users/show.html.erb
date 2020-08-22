@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>アカウント名:</strong>
+  <%= @user.name %>
+</p>
+
+<%= link_to 'ユーザー情報を変更する', edit_user_path(@user) %> |
+<%= link_to 'ユーザー一覧に戻る', users_path %>
+
+<h1>作成したレシピ</h1>
+
+<table>
+  <% @user.recipes.each do |recipe| %>
+    <tr>
+      <td><%= image_tag(image_path(recipe.image), height: '100px') %></td>
+      <td><%= link_to recipe.title, recipe %></td>
+      <td>by <%= link_to recipe.user.name, recipe.user %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<h1>送ったつくれぽ</h1>
+<table>
+  <% @user.tsukurepos.each do |tsukurepo| %>
+    <tr>
+      <td><%= image_tag(image_path(tsukurepo.image), height: '100px') %></td>
+      <td><%= tsukurepo.comment %></td>
+      <td>to <%= link_to tsukurepo.recipe.title, tsukurepo.recipe %></td>
+    </tr>
+  <% end %>
+</table>

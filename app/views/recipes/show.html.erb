@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<% if @recipe.image.present? %>
+<p>
+  <strong>画像:</strong>
+  <%= image_tag(image_path(@recipe.image)) %>
+</p>
+<% end %>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @recipe.title %>
+</p>
+
+<p>
+  <strong>説明:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <strong>材料:</strong>
+  <br />
+  <% @recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.name + ' ' + ingredient.quantity %>
+    <br />
+  <% end %>
+</p>
+
+<p>
+  <strong>手順:</strong>
+  <br />
+  <% @recipe.steps.each.with_index(1) do |step, idx| %>
+    <%= "#{idx}. #{step.description}" %>
+    <br />
+  <% end %>
+</p>
+
+<% if @recipe.tsukurepos.present? %>
+<p>
+  <strong>届いたつくれぽ:</strong>
+  <br />
+  <ul>
+    <% @recipe.tsukurepos.order(id: :desc).each do |tsukurepo| %>
+      <li>
+        <% if tsukurepo.image.present? %>
+          <%= image_tag(image_path(tsukurepo.image)) %>
+          <br/>
+        <% end %>
+        <%= tsukurepo.comment %>
+        <td><%= link_to '削除する', recipe_tsukurepo_path(@recipe, tsukurepo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </li>
+    <% end %>
+  </ul>
+</p>
+<% end %>
+
+<%= link_to 'つくれぽを送る', new_recipe_tsukurepo_path(@recipe) %> |
+<%= link_to 'レシピを修正する', edit_recipe_path(@recipe) %> |
+<%= link_to '一覧に戻る', recipes_path %>

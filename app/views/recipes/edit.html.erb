@@ -1,0 +1,6 @@
+<h1>レシピを修正する</h1>
+
+<%= render 'form', recipe_form: @recipe_form, form_url: recipe_path(@recipe) %>
+
+<%= link_to 'レシピページに戻る', @recipe %> |
+<%= link_to 'レシピ一覧に戻る', recipes_path %>
