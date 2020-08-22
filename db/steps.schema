@@ -1,0 +1,11 @@
+create_table "steps", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  t.string   "description", limit: 255, null: false
+  t.integer  "position",                null: false
+
+  t.integer  "recipe_id",               null: false
+
+  t.datetime "created_at",              null: false
+  t.datetime "updated_at",              null: false
+end
+
+add_index "steps", ["recipe_id"], name: "recipes_idx", using: :btree

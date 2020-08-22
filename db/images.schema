@@ -1,0 +1,7 @@
+create_table "images", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  t.string   "filename",   limit: 256,              null: false
+  t.binary   "body",       limit: 10 * 1024 * 1024, null: false
+
+  t.datetime "created_at",                          null: false
+  t.datetime "updated_at",                          null: false
+end

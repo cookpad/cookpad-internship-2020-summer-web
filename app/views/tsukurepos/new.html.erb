@@ -1,0 +1,31 @@
+<h1>つくれぽを送る</h1>
+
+<%= form_with(model: @tsukruepo_form, scope: :tsukurepo, url: recipe_tsukurepos_path(@recipe), local: true) do |form| %>
+  <% if @tsukurepo_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tsukurepo_form.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @tsukurepo_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "コメント" %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label "画像" %>
+    <%= form.file_field :image, accept: "image/png,image/gif,image/jpeg" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'レシピに戻る', recipe_path(@recipe) %>

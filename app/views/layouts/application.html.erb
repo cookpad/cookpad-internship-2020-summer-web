@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tinypad</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  </head>
+
+  <body>
+    <%= link_to 'トップ', root_path %> |
+    <% if signed_in? %>
+      <%= link_to 'レシピを作成する', new_recipe_path %> |
+      <%= link_to 'ログアウト', session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'ログイン', new_session_path %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

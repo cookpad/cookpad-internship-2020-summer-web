@@ -1,0 +1,23 @@
+# CodeBuild のビルド仕様に関するリファレンス
+# https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-spec-ref.html
+# CodeBuild の Docker サンプル
+# https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/sample-docker.html
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      # Log in to Amazon ECR
+      - $(aws ecr get-login --region ap-northeast-1 --no-include-email)
+      # Pull latest image enable to use reusable layer
+      - docker pull "${REPO}:latest" || true
+  build:
+    commands:
+      # Build image and tagging with `latest` and its revision(CODEBUILD_RESOLVED_SOURCE_VERSION).
+      # Ref: https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-env-ref-env-vars.html
+      - docker build --tag "${REPO}:latest" --tag "${REPO}:${CODEBUILD_RESOLVED_SOURCE_VERSION}" --cache-from "${REPO}:latest" .
+  post_build:
+    commands:
+      # Push image to ECR
+      - docker push "${REPO}:${CODEBUILD_RESOLVED_SOURCE_VERSION}"
+      - docker push "${REPO}:latest"

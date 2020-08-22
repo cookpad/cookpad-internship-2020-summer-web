@@ -1,0 +1,6 @@
+<h1>ユーザー情報を変更する</h1>
+
+<%= render 'form', user_form: @user_form, form_url: user_path(@user) %>
+
+<%= link_to 'ユーザー情報に戻る', @user %> |
+<%= link_to 'ユーザー一覧に戻る', users_path %>

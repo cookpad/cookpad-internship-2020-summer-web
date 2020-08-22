@@ -1,0 +1,56 @@
+<%= form_with(model: recipe_form, scope: :recipe, url: form_url, local: true) do |form| %>
+  <% if recipe_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe_form.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% recipe_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "タイトル" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label "説明" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label "画像" %>
+    <%= form.file_field :image, accept: "image/png,image/gif,image/jpeg" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "材料" %>
+    <%= form.text_area :ingredients_text %>
+    <div class="small gray">
+      入力方法: 1行に材料名、分量をスペース区切りで入力します。入力例:
+      <pre>
+      卵 3つ
+      砂糖 1大さじ
+      </pre>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label "手順" %>
+    <%= form.text_area :steps_text %>
+    <div class="small gray">
+      入力方法: 1行に1手順を書いてください。入力例:
+      <pre>
+      卵白/卵黄を分けます
+      卵白に砂糖を少しづつ入れながら八分立てのメレンゲを作ります
+      </pre>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>新着レシピ</h1>
+
+<table>
+  <% @recent_recipes.each do |recipe| %>
+    <tr>
+      <td>
+        <% if recipe.image.present? %>
+          <%= image_tag(image_path(recipe.image), height: '100px') %>
+        <% end %>
+      </td>
+      <td><%= link_to recipe.title, recipe %></td>
+      <td>by <%= link_to recipe.user.name, recipe.user %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<h1>新着つくれぽ</h1>
+<table>
+  <% @recent_tsukurepos.each do |tsukurepo| %>
+    <tr>
+      <td>
+        <% if tsukurepo.image.present? %>
+          <%= image_tag(image_path(tsukurepo.image), height: '100px') %>
+        <% end %>
+      </td>
+      <td><%= tsukurepo.comment %></td>
+      <td>レシピ: <%= link_to tsukurepo.recipe.title, tsukurepo.recipe %></td>
+    </tr>
+  <% end %>
+</table>

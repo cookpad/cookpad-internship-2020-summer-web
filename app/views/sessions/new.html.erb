@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ログインする</h1>
+
+<%= form_with(model: @session_form, scope: :session, url: session_path, local: true) do |form| %>
+  <% if @session_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@session_form.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @session_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "アカウント名" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "パスワード" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit("ログインする") %>
+  </div>
+<% end %>

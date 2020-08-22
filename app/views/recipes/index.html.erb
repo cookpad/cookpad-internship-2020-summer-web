@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>レシピ一覧</h1>
+
+<table>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.title, recipe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "新しいレシピを作成する", new_recipe_path %>

@@ -1,0 +1,22 @@
+# CodeBuild のビルド仕様に関するリファレンス
+# https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-spec-ref.html
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      ruby: 2.7
+      docker: 19
+  pre_build:
+    commands:
+      # Install gems to `/tmp/bundle` which specified for caching.
+      # `jobs` means the number of jobs to run in parallel when bundle install.
+      - bundle config set path /tmp/bundle && bundle config --global jobs 4
+  build:
+    commands:
+      # Apply db:migration before service deploy.
+      - scripts/hako-oneshot.sh "${HAKO_DEFINITION}" bin/rails ridgepole:apply
+      - scripts/hako-deploy.sh "${HAKO_DEFINITION}"
+cache:
+  paths:
+    - /tmp/bundle

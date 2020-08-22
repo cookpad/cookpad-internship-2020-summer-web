@@ -1,0 +1,21 @@
+development:
+  adapter: mysql2
+  encoding: utf8mb4
+  username: root
+  reconnect: false
+  timeout: 5000
+  database: tinypad_development
+
+test:
+  adapter: mysql2
+  encoding: utf8mb4
+  username: root
+  reconnect: false
+  database: tinypad_test
+  <% if ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  <% end %>
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
