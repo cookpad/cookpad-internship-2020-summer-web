@@ -80,7 +80,7 @@ CodeBuild -> Build projects 画面で `Create build project` を右クリック�
 
 ### Docker build 用プロジェクトを作る
 
-https://ap-northeast-1.console.aws.amazon.com/ecr/repositories?region=ap-northeast-1
+<https://ap-northeast-1.console.aws.amazon.com/ecr/repositories?region=ap-northeast-1>
 
 ページにアクセスしてみるとすでにレポジトリが存在してるのがわかります。
 自分のものは `<iam username>` になってるのですぐわかると思います。

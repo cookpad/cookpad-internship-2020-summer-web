@@ -76,23 +76,23 @@ tinypad では（development, test を除くと）以下の gem が指定され�
 - rails
   - Rails 本体の gem です。
 - mysql2
-  - https://github.com/brianmario/mysql2
+  - <https://github.com/brianmario/mysql2>
   - Ruby で mysql へ接続するために使われるメジャーな gem です。
 - ridgepole
-  - https://github.com/winebarrel/ridgepole
+  - <https://github.com/winebarrel/ridgepole>
   - DB スキーマを管理するための gem です。
 - puma
-  - https://github.com/puma/puma
+  - <https://github.com/puma/puma>
   - Rails でデフォルトでインストールされる Rack 対応ウェブサーバ gem です。
 - sass-rails
-  - https://github.com/rails/sass-rails
+  - <https://github.com/rails/sass-rails>
   - sass/scss を Rails で使うための gem です
 - bootsnap
   - Rails でデフォルトでインストールされる起動高速化のための gem です。
 - warning
-  - https://github.com/jeremyevans/ruby-warning
+  - <https://github.com/jeremyevans/ruby-warning>
   - Ruby 2.7 は Ruby 3.0 に向けて一部仕様変更に対する警告を吐くようになっており、これらを無視するための gem です。
-  - Ref: https://www.ruby-lang.org/en/news/2019/12/12/separation-of-positional-and-keyword-arguments-in-ruby-3-0/
+  - Ref: <https://www.ruby-lang.org/en/news/2019/12/12/separation-of-positional-and-keyword-arguments-in-ruby-3-0/>
 
 つまり Gemfile から tinypad は Rails を利用しているウェブアプリケーションだろうなというのがわかります。
 
@@ -282,11 +282,11 @@ RSpec で記述するテストケース、設定などは spec/ 以下に配置�
 
 テスト間で共通の設定等は spec/spec_helper.rb, spec/rails_helper.rb に書きます。
 
-ドキュメントは https://relishapp.com/rspec にまとまっているのでそちらを参照してください。
+ドキュメントは <https://relishapp.com/rspec> にまとまっているのでそちらを参照してください。
 RSpec 記法や `rspec` コマンドの使い方などのコア機能については RSpec Core を、RSpec での Rails のテストの書き方等は RSpec Rails のドキュメントを参照してください。
 
-- rspec-core: https://relishapp.com/rspec/rspec-core/v/3-9/docs
-- rspec-rails: https://relishapp.com/rspec/rspec-rails/docs
+- rspec-core: <https://relishapp.com/rspec/rspec-core/v/3-9/docs>
+- rspec-rails: <https://relishapp.com/rspec/rspec-rails/docs>
 
 ディレクトリの構成は以下のようになっています。
 
@@ -305,8 +305,8 @@ RSpec 記法や `rspec` コマンドの使い方などのコア機能につい�
 
 FactoryBot はテストデータの作成を手伝ってくれる gem です。
 
-https://github.com/thoughtbot/factory_bot
-https://github.com/thoughtbot/factory_bot_rails
+<https://github.com/thoughtbot/factory_bot>
+<https://github.com/thoughtbot/factory_bot_rails>
 
 自分でテストデータを作ってもいいですが、 FactoryBot を導入することで以下の方なメリットがあります
 

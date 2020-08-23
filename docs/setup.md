@@ -35,7 +35,7 @@ Old password には同様に `Saikoun0-$ummer-internship`, New Password と Rety
 
 ## 作業インスタンスの確認
 
-https://ap-northeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-1#Instances:sort=instanceId
+<https://ap-northeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-1#Instances:sort=instanceId>
 
 EC2 コンソールにアクセスしてみるといくつかのインスタンスが起動していることがわかります。
 その中から名前が自分の Github アカウント名になってるインスタンスを探し、 `Public DNS` を確認してください。
@@ -103,7 +103,7 @@ ssh 接続して、もしくは VS Code を利用してレポジトリを clone 
 - web: `https://ap-northeast-1.console.aws.amazon.com/codesuite/codecommit/repositories/<iam username>/browse?region=ap-northeast-1`
 - clone url: `https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/<iam username>`
 
-https://ap-northeast-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=ap-northeast-1 から探してもいいです。
+<https://ap-northeast-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=ap-northeast-1> から探してもいいです。
 
 ```bash
 cd ~
@@ -130,7 +130,7 @@ VS Code の左タブから Remote Explorer アイコンを右クリックし、�
 「Forward a Port...」もしくは、右の `+` マークをクリックし、 `3000` を入力しましょう。
 エンターを押すと、 3000 -> localhost:3000 という設定が見えるようになります。
 
-ブラウザから `http://localhost:3000` にアクセスしてみましょう。
+ブラウザから <http://localhost:3000> にアクセスしてみましょう。
 不格好なトップページが出てきたら成功です。
 
 ### 初期データを追加してみる

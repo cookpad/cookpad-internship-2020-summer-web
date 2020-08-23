@@ -31,7 +31,7 @@ Tinypad は今の所、あまり性能がよくありません。
 現在は一部の秘匿値を環境変数の形で渡しており、あまり安全とは言えません。
 AWS ECS は Parameter Store を利用し、安全に秘匿値をサービスに注入することができます。
 これを利用して安全に値を渡せるようにしてみましょう。
-https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/systems-manager-parameter-store.html
+<https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/systems-manager-parameter-store.html>
 
 秘匿すべき値は以下になります
 
